@@ -18,32 +18,35 @@ public class Aluno {
     
     // Construtor com parâmetros
     public Aluno(String matricula, String nome, int entrada) {
-        .
+        this.matricula = matricula;
+        this.nome = nome;
+        this.entrada = entrada;
     }
     
     // Getters e Setters
     public String getMatricula() {
-        .
+        return matricula;
     }
     
     public void setMatricula(String matricula) {
-        .
+        this.matricula = matricula;
     }
     
     public String getNome() {
-        .
+        return nome;
     }
     
     public void setNome(String nome) {
-        .
+        this.nome = nome;
+        
     }
     
     public int getEntrada() {
-        .
+        return entrada;
     }
     
     public void setEntrada(int entrada) {
-        .
+        this.entrada = entrada;
     }
     
     /**
@@ -51,7 +54,7 @@ public class Aluno {
      * Quanto mais recente, mais forte
      */
     public int getForca() {
-        .
+        return entrada;
     }
     
     /**
@@ -59,20 +62,28 @@ public class Aluno {
      * A-M = Comum, N-Z = Rara
      */
     public String getRaridade() {
-        .
+        if (matricula == null) {
+            return "Desconhecido";
+        }
+        
+        if (matricula.length() < 1) {
+            return "Desconhecido";
         }
         
         char primeiraLetra = Character.toUpperCase(matricula.charAt(0));
         
         if (primeiraLetra >= 'A' && primeiraLetra <= 'M') {
-        .
+            return "Comum";
+        } else {
+            return "Rara";
+        }
     }
     
     /**
      * Exibe a carta formatada no estilo Super Trunfo
      */
     public void exibirCarta() {
-        .
+        System.out.println("Carta do Aluno - Nome: " + nome + ", Força: " + getForca() + ", Raridade: " + getRaridade());
     }
     
     /**
@@ -85,7 +96,11 @@ public class Aluno {
     
     @Override
     public String toString() {
-        .
+        return "Aluno{" +
+                "matricula='" + matricula + '\'' +
+                ", nome='" + nome + '\'' +
+                ", entrada=" + entrada +
+                '}';
     }
 }
 
